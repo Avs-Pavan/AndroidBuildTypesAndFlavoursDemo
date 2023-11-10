@@ -60,21 +60,28 @@ android {
         create("strawberry") {
             dimension = "icecream"
             applicationIdSuffix = "strawberry"
+            // Build config fields -> Can be access from  build config file in application
             buildConfigField("String", "BuildFlavourName", "\"Straw Berry\"")
         }
+        // create flavour for vanilla
         create("vanilla") {
             dimension = "icecream"
             applicationIdSuffix = "vanilla"
+            // Build config fields -> Can be access from  build config file in application
             buildConfigField("String", "BuildFlavourName", "\"Ice cream\"")
         }
+        // create flavour for chocolate
         create("chocolate") {
             dimension = "icecream"
             applicationIdSuffix = "chocolate"
+            // Build config fields -> Can be access from  build config file in application
             buildConfigField("String", "BuildFlavourName", "\"Chocolate\"")
         }
+        // create flavour for butterscotch
         create("butterscotch") {
             dimension = "icecream"
             applicationIdSuffix = "butterscotch"
+            // Build config fields -> Can be access from  build config file in application
             buildConfigField("String", "BuildFlavourName", "\"Butter Scotch\"")
         }
     }
