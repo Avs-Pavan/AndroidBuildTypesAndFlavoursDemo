@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.kevin.androidbuildtypesandflavoursdemo"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.kevin.androidbuildtypesandflavoursdemo"
@@ -22,6 +22,8 @@ android {
 
     buildTypes {
         release {
+            // manifest place holders
+            manifestPlaceholders += mapOf("message" to "Hello world")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -38,6 +40,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
@@ -45,6 +48,34 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+
+    // Flavour dimension for grouping
+    flavorDimensions += listOf("icecream")
+
+
+    productFlavors {
+        // create flavour for strawberry
+        create("strawberry") {
+            dimension = "icecream"
+            applicationIdSuffix = "strawberry"
+            buildConfigField("String", "BuildFlavourName", "\"Straw Berry\"")
+        }
+        create("vanilla") {
+            dimension = "icecream"
+            applicationIdSuffix = "vanilla"
+            buildConfigField("String", "BuildFlavourName", "\"Ice cream\"")
+        }
+        create("chocolate") {
+            dimension = "icecream"
+            applicationIdSuffix = "chocolate"
+            buildConfigField("String", "BuildFlavourName", "\"Chocolate\"")
+        }
+        create("butterscotch") {
+            dimension = "icecream"
+            applicationIdSuffix = "butterscotch"
+            buildConfigField("String", "BuildFlavourName", "\"Butter Scotch\"")
         }
     }
 }
